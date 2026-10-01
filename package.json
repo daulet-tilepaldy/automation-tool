@@ -1,0 +1,21 @@
+{
+  "name": "automation-tool",
+  "version": "1.0.0",
+  "description": "A small automation tool built with JavaScript and Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daulet-tilepaldy/automation-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/daulet-tilepaldy/automation-tool/issues"
+  },
+  "homepage": "https://github.com/daulet-tilepaldy/automation-tool#readme"
+}
