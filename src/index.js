@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 const { getTodos } = require("./services/todoService");
 
 function analyzeTodos(todos) {
@@ -16,7 +16,7 @@ async function main() {
     const todos = await getTodos();
 
     const result = analyzeTodos(todos);
-    fs.writeFileSync(
+    await fs.writeFile(
       "reports/todo-report.json",
       JSON.stringify(result, null, 2)
   );
