@@ -12,6 +12,31 @@ function analyzeTodos(todos) {
   };
 }
 
+function analyzeByUser(todos) {
+  const users = {};
+
+  for (const todo of todos) {
+    if (!users[todo.userId]) {
+      users[todo.userId] = {
+        userId: todo.userId,
+        total: 0,
+        completed: 0,
+        notCompleted: 0
+      };
+    }
+
+    users[todo.userId].total++;
+
+    if (todo.completed) {
+      users[todo.userId].completed++;
+    } else {
+      users[todo.userId].notCompleted++;
+    }
+  }
+
+  return Object.values(users);
+}
+
 async function main() {
   try {
     const todos = await getTodos();
@@ -28,6 +53,12 @@ async function main() {
       "reports/incomplete-todos.json",
       JSON.stringify(incompleteTodos, null, 2)
 );
+    const userReport = analyzeByUser(todos);
+    await fs.writeFile(
+      "reports/user-report.json",
+      JSON.stringify(userReport, null, 2)
+    );
+    console.log("Пользователей в отчёте:", userReport.length);
     console.log("Всего задач:", result.total);
     console.log("Выполнено:", result.completed);
     console.log("Не выполнено:", result.notCompleted);

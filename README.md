@@ -12,6 +12,7 @@ and generates JSON reports.
 
 - `reports/todo-report.json`: summary statistics
 - `reports/incomplete-todos.json`: list of incomplete todos
+- `reports/user-report.json`: completed and incomplete counts per user
 
 ## Structure
 
