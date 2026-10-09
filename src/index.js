@@ -15,6 +15,7 @@ function analyzeTodos(todos) {
 async function main() {
   try {
     const todos = await getTodos();
+    await fs.mkdir("reports", { recursive: true });
 
     const incompleteTodos = todos.filter(todo => !todo.completed);
 
