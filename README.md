@@ -1,19 +1,23 @@
-# Automation Tool
+# automation-tool
 
-A small automation tool built with JavaScript and Node.js.
+A small Node.js learning project: fetches todos from the public JSONPlaceholder API
+and generates JSON reports.
 
-## About
+## Usage
 
-This project is created to practice software development,
-automation, Git and GitHub workflows.
+    npm install
+    npm start
 
-## Technologies
+## Output
 
-- JavaScript
-- Node.js
-- Git
-- GitHub
+- `reports/todo-report.json`: summary statistics
+- `reports/incomplete-todos.json`: list of incomplete todos
 
-## Status
+## Structure
 
-🚧 In development
+- `src/index.js`: entry point, builds the reports
+- `src/services/todoService.js`: fetches todos via axios
+
+## Notes
+
+Learning project for practicing Git/GitHub workflow (branches, pull requests) and Node.js basics.
