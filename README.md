@@ -17,6 +17,7 @@ and generates JSON reports.
 ## Structure
 
 - `src/index.js`: entry point, builds the reports
+- `src/analyze.js`: pure functions that compute statistics (overall and per user)
 - `src/services/todoService.js`: fetches todos via axios
 
 ## Notes
