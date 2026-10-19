@@ -22,4 +22,4 @@ and generates JSON reports.
 
 ## Notes
 
-Learning project for practicing Git/GitHub workflow, testing and Node.js basics.
+Learning project for practicing Git, GitHub and Node.js: pull requests, testing, refactoring.
