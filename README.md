@@ -1,5 +1,7 @@
 # automation-tool
 
+![Tests](https://github.com/daulet-tilepaldy/automation-tool/actions/workflows/test.yml/badge.svg)
+
 A small Node.js learning project: fetches todos from the public JSONPlaceholder API
 and generates JSON reports.
 
