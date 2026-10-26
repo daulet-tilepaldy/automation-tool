@@ -23,4 +23,14 @@ test("analyzeByUser groups todos by userId", () => {
   ]);
 });
 
+test("analyzeTodos returns zeros for an empty array", () => {
+  assert.deepStrictEqual(analyzeTodos([]), {
+    total: 0,
+    completed: 0,
+    notCompleted: 0
+  });
+});
 
+test("analyzeByUser returns an empty array for empty input", () => {
+  assert.deepStrictEqual(analyzeByUser([]), []);
+});
