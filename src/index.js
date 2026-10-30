@@ -30,6 +30,7 @@ async function main() {
     console.log("Первая невыполненная задача:", incompleteTodos[0]);
   } catch (error) {
     console.error("Ошибка:", error.message);
+    process.exitCode = 1;
   }
 }
 
