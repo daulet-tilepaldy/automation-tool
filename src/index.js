@@ -1,14 +1,8 @@
 const fs = require("fs").promises;
 const { getTodos } = require("./services/todoService");
 const { analyzeTodos, analyzeByUser, filterByUser } = require("./analyze");
+const { parseUserId } = require("./cli");
 
-function parseUserId(args) {
-  const index = args.indexOf("--user");
-  if (index === -1) return null;
-
-  const userId = Number(args[index + 1]);
-  return Number.isInteger(userId) ? userId : NaN;
-}
 
 async function main() {
   const userId = parseUserId(process.argv.slice(2));
