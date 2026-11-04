@@ -1,12 +1,37 @@
 const fs = require("fs").promises;
 const { getTodos } = require("./services/todoService");
-const { analyzeTodos, analyzeByUser } = require("./analyze");
+const { analyzeTodos, analyzeByUser, filterByUser } = require("./analyze");
+
+function parseUserId(args) {
+  const index = args.indexOf("--user");
+  if (index === -1) return null;
+
+  const userId = Number(args[index + 1]);
+  return Number.isInteger(userId) ? userId : NaN;
+}
 
 async function main() {
-  try {
-    const todos = await getTodos();
-    await fs.mkdir("reports", { recursive: true });
+  const userId = parseUserId(process.argv.slice(2));
+  if (Number.isNaN(userId)) {
+    console.error("Ошибка: после --user нужно указать числовой id пользователя");
+    process.exitCode = 1;
+    return;
+  }
 
+  try {
+    let todos = await getTodos();
+
+    if (userId !== null) {
+      todos = filterByUser(todos, userId);
+      if (todos.length === 0) {
+        console.error(`Ошибка: задачи пользователя ${userId} не найдены`);
+        process.exitCode = 1;
+        return;
+      }
+    }
+
+    await fs.mkdir("reports", { recursive: true });
+    
     const incompleteTodos = todos.filter(todo => !todo.completed);
 
     const result = analyzeTodos(todos);
