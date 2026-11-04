@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/daulet-tilepaldy/automation-tool#readme",
   "dependencies": {
-    "axios": "^1.20.0"
+    "axios": "^1.21.0"
   }
 }
