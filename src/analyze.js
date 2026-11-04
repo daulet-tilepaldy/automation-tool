@@ -34,7 +34,12 @@ function analyzeByUser(todos) {
   return Object.values(users);
 }
 
+function filterByUser(todos, userId) {
+  return todos.filter(todo => todo.userId === userId);
+}
+
 module.exports = {
   analyzeTodos,
-  analyzeByUser
+  analyzeByUser,
+  filterByUser
 };
