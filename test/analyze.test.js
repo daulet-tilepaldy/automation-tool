@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { analyzeTodos, analyzeByUser } = require("../src/analyze");
+const { analyzeTodos, analyzeByUser, filterByUser } = require("../src/analyze");
 
 const todos = [
   { userId: 1, id: 1, title: "a", completed: true },
@@ -33,4 +33,15 @@ test("analyzeTodos returns zeros for an empty array", () => {
 
 test("analyzeByUser returns an empty array for empty input", () => {
   assert.deepStrictEqual(analyzeByUser([]), []);
+});
+
+test("filterByUser returns only the todos of the given user", () => {
+  assert.deepStrictEqual(filterByUser(todos, 1), [
+    { userId: 1, id: 1, title: "a", completed: true },
+    { userId: 1, id: 2, title: "b", completed: false }
+  ]);
+});
+
+test("filterByUser returns an empty array for an unknown user", () => {
+  assert.deepStrictEqual(filterByUser(todos, 99), []);
 });
