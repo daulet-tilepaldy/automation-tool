@@ -43,3 +43,4 @@ module.exports = {
   analyzeByUser,
   filterByUser
 };
+const unused = 1;
