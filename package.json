@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "node --test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "coverage": "node --test --experimental-test-coverage"
   },
   "repository": {
     "type": "git",
