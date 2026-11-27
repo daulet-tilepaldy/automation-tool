@@ -20,7 +20,22 @@ and generates JSON reports.
 
 - `src/index.js`: entry point, builds the reports
 - `src/analyze.js`: pure functions that compute statistics (overall and per user)
+- `src/cli.js`: parses command-line arguments (`--user`)
 - `src/services/todoService.js`: fetches todos via axios
+- `test/`: unit tests (`*.test.js`) for `analyze`, `cli` and `todoService`, written with the built-in `node:test` runner
+
+## Development
+
+    npm install
+    npm test
+    npm run lint
+    npm run coverage
+
+- `npm test`: runs the tests in `test/` with `node --test`
+- `npm run lint`: checks the code with ESLint (`eslint.config.js`)
+- `npm run coverage`: runs the tests and prints a code coverage report (`node --test --experimental-test-coverage`)
+
+CI runs `npm run lint` and `npm test` on Node.js 22 and 24 for every push to `main` and every pull request.
 
 ## Notes
 
