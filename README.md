@@ -20,7 +20,9 @@ and generates JSON reports.
 
 - `src/index.js`: entry point, builds the reports
 - `src/analyze.js`: pure functions that compute statistics (overall and per user)
+- `src/cli.js`: parses command-line options (`--user`)
 - `src/services/todoService.js`: fetches todos via axios
+- `test/`: unit tests (`node:test`)
 
 ## Notes
 
@@ -53,3 +55,11 @@ Running `npm start` prints a summary to the console (messages are in Russian):
     npm start -- --user 3
 
 Prints and saves the report for one user only. An unknown or invalid id prints an error and exits with code 1.
+
+## Development
+
+    npm test            # run the unit tests
+    npm run lint        # check the code style with ESLint
+    npm run coverage    # run the tests and print a coverage report
+
+Pull requests are checked by GitHub Actions on Node 22 and 24.
